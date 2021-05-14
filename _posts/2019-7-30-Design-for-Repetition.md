@@ -2,9 +2,8 @@
 layout: post
 title: Design for Repetition
 featured-image: images/unsplash-leonel-fernandez.jpg
+featured-image-credit: Photo by Leonel Fernandez on Unsplash
 ---
-
-{% include image-header.html url="/images/unsplash-leonel-fernandez.jpg" description="Photo by Leonel Fernandez on Unsplash" %}
 
 After building multiple applications used by thousands of paying customers I feel like I've converged on a philosophy of design that could be summed up as 'Design for Repetition'.
 

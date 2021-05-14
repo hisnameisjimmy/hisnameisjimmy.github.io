@@ -2,9 +2,8 @@
 layout: post
 title: Feedback Loops, Momentum, and Excitement
 featured-image: images/unsplash-marco-mons.jpg
+featured-image-credit: Photo by Marco Mons on Unsplash
 ---
-
-{% include image-header.html url="/images/unsplash-marco-mons.jpg" description="Photo by Marco Mons on Unsplash" %}
 
 When building products, there are two things that seem extremely important: scope and speed to feedback. 
 

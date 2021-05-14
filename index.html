@@ -9,11 +9,14 @@ title: Writing and other regrettable decisions
     <article class="post">
         <a class="shadow-link mod-front-page" href="{{ site.baseurl }}{{ post.url }}">
             <h1>{{ post.title }}</h1>
+            <img src="{{ post.featured-image }}" />
             <div class="entry">
-                <p>{{ post.content | truncatewords:75 }}</p>
+                <p>{{ post.content | strip_html | truncatewords:75 }}</p>
             </div>
 
-            <div class="button-link">Read More</div>
+            <div class="button-link">Read More <svg xmlns="http://www.w3.org/2000/svg" class="arrow-image" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg></div>
         </a>
     </article>
 

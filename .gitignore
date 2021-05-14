@@ -8,3 +8,4 @@ Gemfile
 Gemfile.lock
 node_modules
 .tweet-cache
+.jekyll-cache

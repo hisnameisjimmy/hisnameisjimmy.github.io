@@ -2,9 +2,8 @@
 layout: post
 title: Rationalizing design
 featured-image: images/unsplash-soumik-dey.jpg
+featured-image-credit: Photo by Soumik Dey on Unsplash
 ---
-
-{% include image-header.html url="/images/unsplash-soumik-dey.jpg" description="Photo by Soumik Dey on Unsplash" %}
 
 One of the things that got design a seat at the table was data-driven decision making that could be defended. I don't have any evidence to support this, but I really think that design's difficulty in justifying itself to engineering is why products in technology had pretty poor design until the last 10 years. 
 
