@@ -14,6 +14,7 @@ Previously VP of Product at [Badger Maps, Inc.](https://www.badgermapping.com). 
 
 ### Side Projects
 [Art Diario](https://www.artdiario.com) - New, beautifully curated art on your desktop every day. 
+[Grow SF](https://www.growsf.com) - Helping SF grow!
 
 I love making practical, easy-to-use products that are a pleasure to use over and over again.
 

@@ -444,7 +444,7 @@ a.shadow-link {
   font-size: 16px;
   // color: #E7695C;
   font-weight: 700;
-  padding: 5px 10px;
+  padding: 5px 0;
   text-shadow: 0.5px 0.5px 0px #e7695c;
   // background: #2b4a65;
   // background: $red;
@@ -460,6 +460,10 @@ a.shadow-link {
       text-shadow: 0.5px 0.5px 0px $blue;
     }
   }
+}
+
+.button-link.prev, .button-link.next {
+  text-transform: unset;
 }
 
 .prevnext {
