@@ -8,9 +8,9 @@ This is just a place for me to write about things I've thought a lot about. I ma
 
 ### More Information
 
-Currently Senior PM at [Nylas, Inc](https://www.nylas.com) - A VC backed startup killing it in the API space for email/contacts/calendars.
+Currently Lead PM at [Fivetran](https://www.fivetran.com) - The leader in ELT
 
-Previously VP of Product at [Badger Maps, Inc.](https://www.badgermapping.com). A bootstrapped startup I helped take from 4 employees and no product to over $4mm in ARR and 70 employees across multiple countries. Even got to live in Spain for 1.5 years as part of the experience!
+Previously Senior PM at [Nylas](https://www.nylas.com), VP of Product at [Badger Maps, Inc.](https://www.badgermapping.com).
 
 ### Side Projects
 [Art Diario](https://www.artdiario.com) - New, beautifully curated art on your desktop every day. 
