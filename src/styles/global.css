@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    text-shadow: 1px 1px 0px #e7695c;
+    color: #335778;
+    letter-spacing: 1px;
+}
+
+.twitter-tweet {
+    margin: 0 auto;
+}
