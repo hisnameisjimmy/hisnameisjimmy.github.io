@@ -29,7 +29,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - run: cd ~
+    - run: pwd && ls -la
+    - run: cd ..
+    - run: pwd && ls -la
     - run: npm ci
     - run: npm run format
     - run: npm run test
