@@ -8,6 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
 
     - name: Purge cache
       uses: nathanvaughn/actions-cloudflare-purge@master
@@ -29,9 +30,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - run: pwd && ls -la
-    - run: cd ..
-    - run: pwd && ls -la
     - run: npm ci
     - run: npm run format
     - run: npm run test
