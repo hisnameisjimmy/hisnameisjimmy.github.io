@@ -29,6 +29,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
+    - run: cd ~
     - run: npm ci
     - run: npm run format
     - run: npm run test
@@ -39,7 +40,7 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        external_repository: username/external-repository
+        external_repository: hisnameisjimmy/external-repository
         publish_branch: master
         publish_dir: ./public
         cname: www.jimmyhooker.com
