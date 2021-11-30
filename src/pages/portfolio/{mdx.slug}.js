@@ -29,7 +29,7 @@ const PortfolioEntry = ({ data }) => {
                 <h1>{data.mdx.frontmatter.title}</h1>
               </div>
               <div className="mt-4 sm:mt-12">
-                <GatsbyImage image={heroImage} alt={data.mdx.frontmatter.featured_image_credit} className="object-cover shadow-lg"/>
+                <GatsbyImage image={heroImage} alt={data.mdx.frontmatter.featured_image_credit} className="object-cover"/>
               </div>
               {data.mdx.frontmatter.featured_image_credit_link ? 
                   (<p className="mt-4 text-center text-base text-gray-400">

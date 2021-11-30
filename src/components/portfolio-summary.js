@@ -13,12 +13,12 @@ const PortfolioSummary = ({ key, href, image, image_alt, title, summary, link_te
         >
           <div className="!aspect-w-3 aspect-h-2 sm:!aspect-w-4 sm:aspect-h-3">
               {image ? (
-                  <GatsbyImage alt={image_alt} image={image} className="object-cover shadow-lg rounded-lg" />
+                  <GatsbyImage alt={image_alt} image={image} className="object-cover rounded-lg" />
               ) : ""}
           </div>
           <div className="sm:col-span-2">
             <div className="space-y-4">
-              <div className="text-2xl sm:text-4xl leading-10 font-medium space-y-1">
+              <div className="text-2xl sm:text-4xl leading-10 font-extrabold space-y-1">
                 <h3>{title}</h3>
               </div>
               <div className="text-lg text-gray-500">
