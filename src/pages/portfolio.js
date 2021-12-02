@@ -11,23 +11,21 @@ const Portfolio = ({data}) => {
       <Seo 
         title="Jimmy Hooker's Portfolio"
       />
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <ul className="sm:space-y-12 sm:space-y-0 sm:-mt-4 lg:gap-x-8 lg:space-y-0">
-          {
-            data.allMdx.nodes.map((node) => 
-              <PortfolioSummary 
-                key={node.id} 
-                href={node.slug} 
-                image={node.frontmatter.image ? getImage(node.frontmatter.image.childImageSharp) : ""} 
-                image_alt={node.frontmatter.image_alt} 
-                title={node.frontmatter.title} 
-                summary={node.summary} 
-                link_text="Learn More" 
-              />
-            )
-          }
-        </ul>
-      </div>
+      <ul className="sm:space-y-12 sm:space-y-0 sm:-mt-4 lg:gap-x-8 lg:space-y-0 max-w-4xl mx-auto">
+        {
+          data.allMdx.nodes.map((node) => 
+            <PortfolioSummary 
+              key={node.id} 
+              href={node.slug} 
+              image={node.frontmatter.image ? getImage(node.frontmatter.image.childImageSharp) : ""} 
+              image_alt={node.frontmatter.image_alt} 
+              title={node.frontmatter.title} 
+              summary={node.summary} 
+              link_text="Learn More" 
+            />
+          )
+        }
+      </ul>
     </Layout>
   )
 }

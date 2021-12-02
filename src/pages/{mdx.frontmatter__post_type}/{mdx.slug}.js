@@ -25,28 +25,26 @@ const MdxPage = ({ data }) => {
         image={open_graph_image}
       />
       <div className="relative pb-16 bg-white">
-        <div className="relative px-4 sm:px-6 lg:px-8">
-          <div className="text-lg mx-auto">
-              <div className="text-2xl sm:text-4xl leading-10 font-bold mt-5 sm:mt-10 mb-5 sm:mb-10 max-w-2xl mx-auto">
-                <h1>{data.mdx.frontmatter.title}</h1>
-              </div>
-              <div className="mt-4 sm:mt-12">
-                <GatsbyImage image={heroImage} alt={data.mdx.frontmatter.featured_image_credit} className="object-cover"/>
-              </div>
-              {data.mdx.frontmatter.featured_image_credit_link ? 
-                  (<p className="mt-4 text-center text-base text-gray-400">
-                    <a href={data.mdx.frontmatter.featured_image_credit_link} className="underline">
-                      {data.mdx.frontmatter.featured_image_credit}
-                    </a>
-                  </p>)
-                  : ""
-                }
-            <div className="mt-6 sm:mt-12 text-gray-500 prose prose-lg mx-auto">
-              <SocialShare url={`${data.site.siteMetadata.siteUrl}${data.mdx.slug}`} message={data.mdx.frontmatter.title}/>
-              <MDXProvider components={shortcodes}>
-                <MDXRenderer>{data.mdx.body}</MDXRenderer>
-              </MDXProvider>
+        <div className="text-lg mx-auto">
+            <div className="text-2xl sm:text-4xl leading-10 font-bold mb-5 sm:mb-10 max-w-2xl mx-auto">
+              <h1>{data.mdx.frontmatter.title}</h1>
             </div>
+            <div className="mt-4 sm:mt-12">
+              <GatsbyImage image={heroImage} alt={data.mdx.frontmatter.featured_image_credit} className="object-cover"/>
+            </div>
+            {data.mdx.frontmatter.featured_image_credit_link ? 
+                (<p className="mt-4 text-center text-base text-gray-400">
+                  <a href={data.mdx.frontmatter.featured_image_credit_link} className="underline">
+                    {data.mdx.frontmatter.featured_image_credit}
+                  </a>
+                </p>)
+                : ""
+              }
+          <div className="mt-6 sm:mt-12 text-gray-500 prose prose-lg mx-auto">
+            <SocialShare url={`${data.site.siteMetadata.siteUrl}${data.mdx.slug}`} message={data.mdx.frontmatter.title}/>
+            <MDXProvider components={shortcodes}>
+              <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            </MDXProvider>
           </div>
         </div>
       </div>

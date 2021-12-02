@@ -11,7 +11,6 @@ const Guides = ({data}) => {
       <Seo 
         title="Jimmy Hooker's Website"
       />
-      <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
         <ul className="sm:space-y-12 sm:space-y-0 sm:-mt-4 lg:gap-x-8 lg:space-y-0">
           {
             data.allMdx.nodes.map((node) => 
@@ -27,7 +26,6 @@ const Guides = ({data}) => {
             )
           }
         </ul>
-      </div>
     </Layout>
   )
 }

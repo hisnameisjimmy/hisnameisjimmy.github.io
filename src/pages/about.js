@@ -8,7 +8,7 @@ const AboutPage = () => {
       <Seo 
         title="About Jimmy Hooker"
       />
-      <div className="prose prose-lg mx-auto my-16">
+      <div className="prose prose-lg mx-auto">
         <h1>About</h1>
         <p>This is just a place for me to write about things I'm thinking about. I make no claims, I am not an academic, and it's pretty likely I don't know what I'm talking about or have significant gaps in my understanding of the problem.</p>
         <h3>More Information</h3>

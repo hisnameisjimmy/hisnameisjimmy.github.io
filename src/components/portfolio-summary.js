@@ -9,14 +9,12 @@ const PortfolioSummary = ({ key, href, image, image_alt, title, summary, link_te
       <li key={key} className="sm:py-4">
         <Link
           to={href}
-          className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-12 sm:space-y-0 sm:bg-gray-50 p-5 sm:p-10 rounded-2xl sm:hover:bg-blue-50"
+          className="space-y-0 grid grid-cols-3 items-center items-start sm:gap-12 sm:bg-gray-50 py-5 rounded-2xl sm:hover:bg-blue-50 sm:px-10"
         >
-          <div className="!aspect-w-3 aspect-h-2 sm:!aspect-w-4 sm:aspect-h-3">
-              {image ? (
-                  <GatsbyImage alt={image_alt} image={image} className="object-cover rounded-lg" />
-              ) : ""}
-          </div>
-          <div className="sm:col-span-2">
+        {image ? (
+            <GatsbyImage alt={image_alt} image={image} className="place-self-center" />
+        ) : ""}
+          <div className="col-span-2">
             <div className="space-y-4">
               <div className="text-2xl sm:text-4xl leading-10 font-extrabold space-y-1">
                 <h3>{title}</h3>
