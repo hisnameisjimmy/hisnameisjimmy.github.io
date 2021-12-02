@@ -5,23 +5,17 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Seo from '../../components/seo'
-import ThreeColumn from '../../components/three-column'
-import Person from '../../components/person'
-import People from "../../components/people"
-import Table from "../../components/table"
 import { SocialShare } from "../../components/helpers";
 
-const BlogEntry = ({ data }) => {
-  const heroImage = getImage(data.mdx.frontmatter.featured_image);
+const MdxPage = ({ data }) => {
+  const heroImage = data.mdx.frontmatter.featured_image 
+    ? getImage(data.mdx.frontmatter.featured_image)
+    : null
   const open_graph_image = data.mdx.frontmatter.open_graph_image 
     ? data.mdx.frontmatter.open_graph_image.childImageSharp.resize
     : null
 
   const shortcodes = { 
-    ThreeColumn, 
-    Person, 
-    Table, 
-    People
   }
 
   return (
@@ -37,7 +31,7 @@ const BlogEntry = ({ data }) => {
                 <h1>{data.mdx.frontmatter.title}</h1>
               </div>
               <div className="mt-4 sm:mt-12">
-                <GatsbyImage image={heroImage} alt={data.mdx.frontmatter.featured_image_credit} className="object-cover shadow-lg"/>
+                <GatsbyImage image={heroImage} alt={data.mdx.frontmatter.featured_image_credit} className="object-cover"/>
               </div>
               {data.mdx.frontmatter.featured_image_credit_link ? 
                   (<p className="mt-4 text-center text-base text-gray-400">
@@ -62,7 +56,9 @@ const BlogEntry = ({ data }) => {
 
 export const query = graphql`
   query ($slug: String) {
-    mdx(slug: { eq: $slug }, fileAbsolutePath: {regex: "/(/blog/)/"}) {
+    mdx(
+      slug: { eq: $slug }
+    ) {
       body
       slug
       frontmatter {
@@ -94,4 +90,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogEntry;
+export default MdxPage;

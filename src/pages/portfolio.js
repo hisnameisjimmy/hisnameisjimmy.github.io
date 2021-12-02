@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
+import Layout from '../components/layout'
 import { graphql } from 'gatsby'
-import Seo from '../../components/seo'
+import Seo from '../components/seo'
 import { getImage } from "gatsby-plugin-image";
-import PortfolioSummary from '../../components/portfolio-summary';
+import PortfolioSummary from '../components/portfolio-summary';
 
 const Portfolio = ({data}) => {
   return (
@@ -36,7 +36,7 @@ export const query = graphql`
   query {
     allMdx(
         sort: {fields: frontmatter___date, order: DESC}
-        filter: {fileAbsolutePath: {regex: "/(/portfolio/)/"}}
+        filter: {frontmatter: {post_type: {eq: "portfolio"}}}
       ) {
         nodes {
           frontmatter {
