@@ -7,6 +7,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env: 
+      NODE_ENV: production
+      SITE_URL: https://www.jimmyhooker.com
+
     steps:
     - uses: actions/checkout@v2
 
@@ -16,11 +20,6 @@ jobs:
       env:
         CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
         CLOUDFLARE_AUTH_KEY: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
-
-    - name: Create env file
-      run: |
-        touch .env.production
-        echo SITE_URL=https://www.jimmyhooker.com >> .env
 
     - name: Setup Node
       uses: actions/setup-node@v2
