@@ -42,7 +42,5 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        external_repository: hisnameisjimmy/external-repository
-        publish_branch: master
         publish_dir: ./public
         cname: www.jimmyhooker.com
