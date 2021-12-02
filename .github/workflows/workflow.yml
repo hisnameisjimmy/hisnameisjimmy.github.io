@@ -18,9 +18,9 @@ jobs:
         CLOUDFLARE_AUTH_KEY: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
 
     - name: Create env file
-        run: |
-          touch .env
-          echo SITE_URL=https://www.jimmyhooker.com >> .env
+      run: |
+        touch .env
+        echo SITE_URL=https://www.jimmyhooker.com >> .env
 
     - name: Setup Node
       uses: actions/setup-node@v2
