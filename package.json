@@ -42,12 +42,12 @@
     "react-share": "^4.4.0",
     "react-table": "^7.7.0",
     "tailwindcss-selection-variant": "^0.1.0",
-    "typeface-nunito-sans": "^1.1.13"
-  },
-  "devDependencies": {
+    "typeface-nunito-sans": "^1.1.13",
     "autoprefixer": "^10.4.0",
     "gatsby-plugin-postcss": "^5.1.0",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
   }
 }
