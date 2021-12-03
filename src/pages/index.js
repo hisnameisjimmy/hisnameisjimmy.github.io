@@ -5,7 +5,7 @@ import Seo from '../components/seo'
 import BlogSummary from "../components/blog-summary";
 import { getImage } from "gatsby-plugin-image";
 
-const Guides = ({data}) => {
+const Index = ({data}) => {
   return (
     <Layout>
       <Seo 
@@ -15,7 +15,7 @@ const Guides = ({data}) => {
           {
             data.allMdx.nodes.map((node) => 
               <BlogSummary 
-                key={node.id} 
+                id={node.id} 
                 href={node.slug} 
                 image={node.frontmatter.image ? getImage(node.frontmatter.image.childImageSharp) : ""} 
                 image_alt={node.frontmatter.image_alt} 
@@ -55,4 +55,4 @@ export const query = graphql`
   }
 `
 
-export default Guides;
+export default Index;

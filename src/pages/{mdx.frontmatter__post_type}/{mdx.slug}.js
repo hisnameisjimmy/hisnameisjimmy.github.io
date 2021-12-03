@@ -24,9 +24,9 @@ const MdxPage = ({ data }) => {
         title={data.mdx.frontmatter.title}
         image={open_graph_image}
       />
-      <div className="relative pb-16 bg-white">
+      <div className="relative pb-16">
         <div className="text-lg mx-auto">
-            <div className="text-2xl sm:text-4xl leading-10 font-bold mb-5 sm:mb-10 max-w-2xl mx-auto">
+            <div className="text-2xl sm:text-4xl leading-10 font-extrabold mb-5 sm:mb-10 max-w-2xl mx-auto">
               <h1>{data.mdx.frontmatter.title}</h1>
             </div>
             <div className="mt-4 sm:mt-12">

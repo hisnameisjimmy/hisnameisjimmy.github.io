@@ -22,11 +22,14 @@
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.4.0",
+    "framer-motion": "^5.3.3",
     "gatsby": "^4.3.0",
     "gatsby-plugin-google-analytics": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",
     "gatsby-plugin-manifest": "^4.1.1",
     "gatsby-plugin-mdx": "^3.1.1",
+    "gatsby-plugin-postcss": "^5.1.0",
     "gatsby-plugin-react-helmet": "^5.1.0",
     "gatsby-plugin-sharp": "^4.1.1",
     "gatsby-plugin-sitemap": "^5.1.1",
@@ -36,18 +39,14 @@
     "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.1.0",
     "iframe-resizer-react": "^1.1.0",
+    "postcss": "^8.3.11",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-share": "^4.4.0",
     "react-table": "^7.7.0",
+    "tailwindcss": "^2.2.19",
     "tailwindcss-selection-variant": "^0.1.0",
-    "typeface-nunito-sans": "^1.1.13",
-    "autoprefixer": "^10.4.0",
-    "gatsby-plugin-postcss": "^5.1.0",
-    "postcss": "^8.3.11",
-    "tailwindcss": "^2.2.19"
-  },
-  "devDependencies": {
+    "typeface-nunito-sans": "^1.1.13"
   }
 }

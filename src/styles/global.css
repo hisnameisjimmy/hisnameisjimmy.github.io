@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    background-color: #f3f3f3;
+}
+
 .logo {
     font-size: 26px;
     font-weight: 900;
-    text-shadow: 4px 0px 0px #e7695c;
-    color: #335778;
     letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.orange {
+ color: #e7695c;
+}
+
+.blue {
+    color: #335778;
+}
+
+.white {
+    color: #fff;
 }
 
 .twitter-tweet {
