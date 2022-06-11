@@ -7,40 +7,40 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env: 
+    env:
       NODE_ENV: production
       SITE_URL: https://www.jimmyhooker.com
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Purge cache
-      uses: nathanvaughn/actions-cloudflare-purge@master
-      if: success()
-      env:
-        CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-        CLOUDFLARE_AUTH_KEY: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
+      - name: Purge cache
+        uses: nathanvaughn/actions-cloudflare-purge@master
+        if: success()
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+          CLOUDFLARE_AUTH_KEY: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
 
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    - run: npm ci
-    - run: npm run build
+      - run: npm ci
+      - run: npm run build
 
-    - name: Deploy to github pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: ${{ github.ref == 'refs/heads/main' }}
-      with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        publish_dir: ./public
-        cname: www.jimmyhooker.com
+      - name: Deploy to github pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./public
+          cname: www.jimmyhooker.com
