@@ -45,7 +45,9 @@ const MdxPage = ({ data }) => {
               </a>
             </p>
           ) : (
-            ''
+            <p className="mt-4 text-center text-base text-gray-400">
+              {data.mdx.frontmatter.featured_image_credit}
+            </p>
           )}
           <div className="mt-6 sm:mt-12 text-gray-500 prose prose-lg mx-auto">
             <SocialShare
