@@ -1,40 +1,44 @@
-import * as React from 'react'
-import Layout from '../components/layout'
-import { graphql } from 'gatsby'
-import Seo from '../components/seo'
-import BlogSummary from "../components/blog-summary";
-import { getImage } from "gatsby-plugin-image";
+import * as React from 'react';
+import Layout from '../components/layout';
+import { graphql } from 'gatsby';
+import Seo from '../components/seo';
+import BlogSummary from '../components/blog-summary';
+import { getImage } from 'gatsby-plugin-image';
 
-const Index = ({data}) => {
+const todaysDate = new Date();
+const formattedDate = todaysDate.toISOString().split('T')[0];
+console.log(formattedDate);
+
+const Index = ({ data }) => {
   return (
     <Layout>
-      <Seo 
-        title="Jimmy Hooker's Website"
-      />
-        <ul className="sm:space-y-12 sm:space-y-0 sm:-mt-4 lg:gap-x-8 lg:space-y-0">
-          {
-            data.allMdx.nodes.map((node) => 
-              <BlogSummary 
-                id={node.id} 
-                href={node.slug} 
-                image={node.frontmatter.image ? getImage(node.frontmatter.image.childImageSharp) : ""} 
-                image_alt={node.frontmatter.image_alt} 
-                title={node.frontmatter.title} 
-                summary={node.summary} 
-                link_text="Read More" 
-              />
-            )
-          }
-        </ul>
+      <Seo title="Jimmy Hooker's Website" />
+      <ul className="sm:space-y-12 sm:space-y-0 sm:-mt-4 lg:gap-x-8 lg:space-y-0">
+        {data.allMdx.nodes.map((node) => (
+          <BlogSummary
+            id={node.id}
+            href={node.slug}
+            image={
+              node.frontmatter.image
+                ? getImage(node.frontmatter.image.childImageSharp)
+                : ''
+            }
+            image_alt={node.frontmatter.image_alt}
+            title={node.frontmatter.title}
+            summary={node.summary}
+            link_text="Read More"
+          />
+        ))}
+      </ul>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
     allMdx(
-      sort: {fields: frontmatter___date, order: DESC}
-      filter: {frontmatter: {post_type: {eq: "blog"}}}
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { post_type: { eq: "blog" } } }
     ) {
       nodes {
         frontmatter {
@@ -53,6 +57,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 export default Index;

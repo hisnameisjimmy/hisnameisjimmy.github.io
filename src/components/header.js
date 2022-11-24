@@ -61,7 +61,7 @@ const Header = () => {
         <motion.div
           className="sm:mr-auto grid grid-cols-1"
           initial="rest"
-          whileTap="hover"
+          whileTap="rest"
           animate="rest"
         >
           <Link className="col-start-1 row-start-1 logo blue z-20" to="/">
