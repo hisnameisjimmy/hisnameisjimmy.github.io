@@ -15,6 +15,15 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-twitter`,
+    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-6279919-1',
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -34,17 +43,24 @@ module.exports = {
           {
             serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map((edge) => {
+                const featuredImageUrl = edge.node.frontmatter.featured_image
+                  ? site.siteMetadata.siteUrl +
+                    edge.node.frontmatter.featured_image.publicURL
+                  : null;
                 return {
                   title: edge.node.frontmatter.title,
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
+                  enclosure: featuredImageUrl
+                    ? { url: featuredImageUrl }
+                    : undefined,
                   custom_elements: [
                     {
                       'content:encoded': edge.node.html.replace(
                         /(?<=\"|\s)\/static\//g,
-                        `${site.siteMetadata.siteUrl}\/static\/`,
+                        `${site.siteMetadata.siteUrl}/static/`,
                       ),
                     },
                   ],
@@ -63,6 +79,9 @@ module.exports = {
                       frontmatter {
                         title
                         date
+                        featured_image {
+                          publicURL
+                        }
                       }
                     }
                   }
@@ -71,20 +90,12 @@ module.exports = {
             `,
             output: '/rss.xml',
             title: "Jimmy Hooker's RSS Feed",
-            image_url: 'src/images/icon.png',
+            image_url: process.env.SITE_URL + '/icon.png',
           },
         ],
       },
     },
     'gatsby-plugin-image',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-6279919-1',
-      },
-    },
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
