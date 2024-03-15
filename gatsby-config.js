@@ -40,7 +40,14 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  custom_elements: [
+                    {
+                      'content:encoded': edge.node.html.replace(
+                        /(?<=\"|\s)\/static\//g,
+                        `${site.siteMetadata.siteUrl}\/static\/`,
+                      ),
+                    },
+                  ],
                 };
               });
             },
@@ -64,6 +71,7 @@ module.exports = {
             `,
             output: '/rss.xml',
             title: "Jimmy Hooker's RSS Feed",
+            image_url: 'src/images/icon.png',
           },
         ],
       },
