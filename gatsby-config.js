@@ -58,10 +58,30 @@ module.exports = {
                     : undefined,
                   custom_elements: [
                     {
-                      'content:encoded': edge.node.html.replace(
-                        /(?<=\"|\s)\/static\//g,
-                        `${site.siteMetadata.siteUrl}/static/`,
-                      ),
+                      'content:encoded': edge.node.html
+                        .replace(
+                          /(<img [^>]*srcSet=")([^"]+)"/g,
+                          function (match, p1, p2) {
+                            return (
+                              p1 +
+                              p2
+                                .split(',')
+                                .map((item) =>
+                                  item.trim().startsWith('/static/')
+                                    ? `${
+                                        site.siteMetadata.siteUrl
+                                      }${item.trim()}`
+                                    : item.trim(),
+                                )
+                                .join(', ') +
+                              '"'
+                            );
+                          },
+                        )
+                        .replace(
+                          /(<img [^>]*src=")(\/static\/[^"]+")/g,
+                          `${site.siteMetadata.siteUrl}$2`,
+                        ),
                     },
                   ],
                 };
