@@ -47,6 +47,7 @@ module.exports = {
                   ? site.siteMetadata.siteUrl +
                     edge.node.frontmatter.featured_image.publicURL
                   : null;
+
                 return {
                   title: edge.node.frontmatter.title,
                   description: edge.node.excerpt,
@@ -59,29 +60,25 @@ module.exports = {
                   custom_elements: [
                     {
                       'content:encoded': edge.node.html
+                        // Remove base64 background images and associated span wrappers:
                         .replace(
-                          /(<img [^>]*srcSet=")([^"]+)"/g,
-                          function (match, p1, p2) {
-                            return (
-                              p1 +
-                              p2
-                                .split(',')
-                                .map((item) =>
-                                  item.trim().startsWith('/static/')
-                                    ? `${
-                                        site.siteMetadata.siteUrl
-                                      }${item.trim()}`
-                                    : item.trim(),
-                                )
-                                .join(', ') +
-                              '"'
-                            );
-                          },
+                          /<span class="gatsby-resp-image-background-image"[^>]*>.*?<\/span>/gs,
+                          '',
                         )
+                        // Remove gatsby wrapper spans:
                         .replace(
-                          /(<img [^>]*src=")(\/static\/[^"]+")/g,
-                          `${site.siteMetadata.siteUrl}$2`,
-                        ),
+                          /<span class="gatsby-resp-image-wrapper"[^>]*>/g,
+                          '',
+                        )
+                        .replace(/<\/span>/g, '')
+                        // Fix image paths and remove unwanted attributes as before:
+                        .replace(
+                          /(?<=<img [^>]*)src="\/static\//g,
+                          `src="${site.siteMetadata.siteUrl}/static/`,
+                        )
+                        .replace(/srcset="[^"]*"/g, '')
+                        .replace(/sizes="[^"]*"/g, '')
+                        .replace(/style="[^"]*"/g, ''),
                     },
                   ],
                 };
