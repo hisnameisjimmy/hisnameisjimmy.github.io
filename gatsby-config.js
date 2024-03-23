@@ -60,25 +60,24 @@ module.exports = {
                   custom_elements: [
                     {
                       'content:encoded': edge.node.html
-                        // Remove base64 background images and associated span wrappers:
+                        // Fix image paths to be absolute:
                         .replace(
-                          /<span class="gatsby-resp-image-background-image"[^>]*>.*?<\/span>/gs,
-                          '',
+                          /<img ([^>]*?)src="\/static\//g,
+                          `<img $1src="${site.siteMetadata.siteUrl}/static/`,
                         )
-                        // Remove gatsby wrapper spans:
-                        .replace(
-                          /<span class="gatsby-resp-image-wrapper"[^>]*>/g,
-                          '',
-                        )
-                        .replace(/<\/span>/g, '')
-                        // Fix image paths and remove unwanted attributes as before:
-                        .replace(
-                          /(?<=<img [^>]*)src="\/static\//g,
-                          `src="${site.siteMetadata.siteUrl}/static/`,
-                        )
-                        .replace(/srcset="[^"]*"/g, '')
+                        // Remove srcSet attributes explicitly:
+                        .replace(/srcSet="[^"]*"/g, '')
+                        // Remove sizes attributes explicitly:
                         .replace(/sizes="[^"]*"/g, '')
-                        .replace(/style="[^"]*"/g, ''),
+                        // Cleanup: Remove unnecessary spaces between attributes:
+                        .replace(
+                          /<img (\s+[^>]+)>/g,
+                          (match, p1) =>
+                            `<img ${p1.trim().replace(/\s{2,}/g, ' ')}>`,
+                        )
+                        // Optional: Standardize width for all images in the RSS:
+                        .replace(/<img /g, '<img width="1200" ')
+                        .trim(),
                     },
                   ],
                 };
