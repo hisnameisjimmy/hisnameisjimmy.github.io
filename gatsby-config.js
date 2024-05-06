@@ -17,9 +17,9 @@ module.exports = {
     `gatsby-plugin-twitter`,
     'gatsby-plugin-image',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: 'UA-6279919-1',
+        trackingIds: ['G-4HPC5TT803'],
       },
     },
     'gatsby-plugin-react-helmet',
