@@ -16,8 +16,8 @@ const AboutPage = () => {
         </p>
         <h3>More Information</h3>
         <p>
-          Currently Lead PM at <a href="https://www.fivetran.com">Fivetran</a> -
-          The leader in ELT
+          Currently Staff PM at <a href="https://www.fivetran.com">Fivetran</a>{' '}
+          - The leader in ELT
         </p>
         <p>
           Previously Senior PM at <a href="https://www.nylas.com">Nylas</a>, VP
@@ -28,15 +28,25 @@ const AboutPage = () => {
         <h3>Side Projects</h3>
         <ul>
           <li>
+            <a href="https://www.caschooltrends.com">
+              California School Trends
+            </a>{' '}
+            - Understand how your school and district is performing over time
+            and hold elected leaders accountable to results.{' '}
+          </li>
+          <li>
             <a href="https://www.museumheight.com">Museum Height</a> - Easily
             hang multiple pieces of art at Museum Height (57 inches).{' '}
           </li>
           <li>
             <a href="https://www.artdiario.com">Art Diario</a> - New,
-            beautifully curated art on your desktop every day.{' '}
+            beautifully curated art on your desktop every day and a social
+            experience: Everyone sees the same art!{' '}
           </li>
           <li>
-            <a href="https://www.growsf.com">Grow SF</a> - Helping SF grow!
+            <a href="https://www.growsf.com">Grow SF</a> - Helping SF grow by
+            producing deeply researched voter guides, polling, bench-building,
+            and more.
           </li>
         </ul>
 
